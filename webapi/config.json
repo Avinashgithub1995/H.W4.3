@@ -1,0 +1,6 @@
+{
+    "connectionString":"mongodb://localhost/sukeshkumar-db",
+    "prodEnvironment":"http://localhost:4200",
+    "PORT":4000,
+    "bodyParser":"100mb"
+}

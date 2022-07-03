@@ -1,0 +1,83 @@
+<div class="card mb-12">
+  <div class="card-header">
+    <h2>
+      <i class="fa fa-list" aria-hidden="true"></i> <b> All Information</b> <button type="button" class="btn btn-sm btn-primary" (click)="onclickButton()">New Post</button>
+    </h2>
+  </div>
+  <div class="card-body table-responsive">
+    <div class="row">
+      <div class="col-md-2">
+        <input type="text" placeholder="Search from title" class="form-control" [(ngModel)]="filterString" />
+      </div>
+      <div class="col-md-2">
+        <button type="button" (click)="onClickFilterData()" class="btn btn-sm btn-warning">Search</button>
+      </div>
+    </div>
+
+    <table class="table table-hover table-striped">
+      <thead>
+        <div class="row">
+          <div class="container">
+            <table #dataTable class="table table-striped table-hover table-bordered table-sm" id="mytable">
+              <caption>
+                <b>View Post Details</b>
+              </caption>
+              <thead>
+                <tr>
+                  <th  scope="col">
+                 Post Title
+                  </th>
+                  <th style="text-align: center;" scope="col">
+                 Name
+                  </th>
+                  <th style="text-align: center;" scope="col">
+                    post email
+                  </th>
+                  <th style="text-align: center;" scope="col">
+                    Contact Number
+                  </th>
+                  <th style="text-align: center;" scope="col">
+                    status
+                  </th>
+                  <th style="text-align: center;" scope="col">
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="allinfomationArray.length <1">
+                  <td colspan="12" style="text-align: center;"><b>There are no records to show</b></td>
+                </tr>
+                <tr *ngFor="let data of allinfomationArray           ">
+                  <td style="text-align: center;">
+                    {{ data?.title }}
+                  </td>
+                  <td style="text-align: center;">
+                    {{ data.name }}
+                  </td>
+                  <td style="text-align: center;">
+                    {{ data.email }}
+                  </td>
+                  <td style="text-align: center;">
+                    {{ data.contactNumber }}
+                  </td>
+                  <td style="text-align: center;">
+                    {{ data.status }}
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="btn btn-primary btn-sm" (click)="inactiveActive(data)">inActive/Active</button>
+                    &nbsp;
+                    <button type="button" class="btn btn-success btn-sm" (click)="updateInformation(data)">Update</button>
+                    &nbsp;
+                    <button type="button" (click)="deleteRecord(data)" class="btn btn-danger btn-sm">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </thead>
+    </table>
+  </div>
+</div>
